@@ -1,15 +1,34 @@
 
-import { cases } from "./testcases.ts";
 import { assertEquals } from "jsr:@std/assert";
 
-function compare_value(a: any, b: any): boolean {
-    // todo: implement this
-    return true;
+const cases = {
+    "test0": {
+        "output": [1, 2, 3],
+        "answer": [3, 2, 1],
+        "matching": true
+    },
+    "test1": {
+        "output": [1, {foo: 2}, 3, {bar: {baz: 4}}],
+        "answer": [{foo: 2}, 3, 1, {bar: {baz: 4}}],
+        "matching": true
+    },
+    "test2": {
+        "output": [1, {foo: 2}, 3, {bar: {baz: 4}}],
+        "answer": [{foo: 2}, 3, 1, {bar: {bab: 4}}],
+        "matching": false
+    },
+    "test3": {
+        "output": [1, {foo: 2}, 3, {bar: {baz: 4}}],
+        "answer": [1, {bar: {baz: 4}}, 3],
+        "matching": false
+    }
 }
 
-function compare_outputs(output: Record<string, any>[], answer: Record<string, any>[]): boolean {
+// compare two unordered arrays of objects to ensure they have
+// the identical set of elements.
+function compare_outputs(output: any[], answer: any[]): boolean {
     // todo: implement this
-    return true;
+    return false;
 }
 
 Object.entries(cases).forEach(([key, value]) => {
