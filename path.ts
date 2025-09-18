@@ -7,8 +7,8 @@ const nested = {
   }
 };
 
-function path(obj: any, path: string): any {
+function deref_path(obj: any, path_str: string): any {
   return undefined; 
 }
 
-console.log(path(nested, 'a.b.c'));
+console.log(deref_path(nested, 'a.b.c'));
